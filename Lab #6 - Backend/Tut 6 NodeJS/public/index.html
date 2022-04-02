@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #e9d596;
+            width: 50%;
+            margin: auto;
+        }
+
+        h1, h2, h3 {
+            color: #003b3b;
+        }
+
+        #banner {
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #course_intro {
+            font-size: 1.5rem;
+        }
+
+        .odd_row {
+            background: #d4d4d4;
+        }
+
+        .even_row {
+            background: #8d8d8d;
+        }
+
+        ol, table {
+            width: 60%;
+            text-align: center;
+        }
+
+        ol {
+            font-size: 1.2rem;
+        }
+
+        ol .odd_row {
+            color: green;
+        }
+
+        ol .even_row {
+            color: white;
+        }
+
+        .section_div:hover {
+            background-color: gold;
+        }
+    </style>
+
+</head>
+<body>
+<img id="banner" src="images/logo.jpg" alt="Astro Logo">
+<div class="section_div">
+    <h1> AST 120 </h1>
+    <p id="course_intro"> An introductory class to astronomy. Taught by Dr. Planet.</p>
+
+</div>
+<hr>
+<div class="section_div">
+    <h3>Course content</h3>
+    <ol>
+        <li class="odd_row"> Field of Astronomy</li>
+        <li class="even_row"> Big Bang</li>
+        <li class="odd_row"> Galaxy</li>
+        <li class="even_row"> Origin of Solar System</li>
+    </ol>
+</div>
+<hr>
+<div class="section_div">
+    <h3>Resources</h3>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Big_Bang">Wikipedia</a></li>
+        <li><a href="../pdfs/syllabus.pdf">Syllabus</a></li>
+    </ul>
+</div>
+<hr>
+
+<div class="section_div">
+    <h3>Homework</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Url</th>
+            <th>Due date</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr class="odd_row">
+            <td>Homework 1</td>
+            <td><a href="hw1.html">Link</a></td>
+            <td>Jan 10, 2021</td>
+        </tr>
+        <tr class="even_row">
+            <td>Homework 2</td>
+            <td><a href="hw2.html">Link</a></td>
+            <td>Jan 20, 2021</td>
+        </tr>
+        <tr class="odd_row">
+            <td>Homework 3</td>
+            <td>TBA</td>
+            <td>Jan 30, 2021</td>
+        </tr>
+        <tr class="even_row">
+            <td>Homework 4</td>
+            <td>TBA</td>
+            <td>Feb 10, 2021</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<hr>
+<div class="section_div">
+    <h3>Post to forum</h3>
+    <form action="/forum" method="post">
+        <label for="name">Name:</label><br>
+        <input id="name" type="text" name="name" value=""><br>
+        <label for="email">Email:</label><br>
+        <input id="email" type="email" name="email" value=""><br>
+        <label for="year">Choose your year:</label>
+        <select name="year" id="year">
+            <option value="1">Freshman</option>
+            <option value="2">Sophomore</option>
+            <option value="3">Junior</option>
+            <option value="4">Senior</option>
+        </select><br>
+        <label for="message">Your message:</label><br>
+        <textarea id="message" name="message" rows="10" cols="50"></textarea> <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

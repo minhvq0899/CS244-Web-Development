@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01d949da-9754-4a55-94f3-1990a73ceeb6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1qV59vFwdB2BmT1YB0hE26PbXFn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab #6 - Backend/Tut 6 NodeJS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\OneDrive\CLASS\CS201S21\5 jQuery\5.3 Lab\code\javascript" />
+      <recent name="F:\OneDrive\CLASS\CS201S21\5 jQuery\5.3 Lab\code\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\OneDrive\CLASS\CS201S21\5 jQuery\5.3 Lab\code\img" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01d949da-9754-4a55-94f3-1990a73ceeb6" name="Default Changelist" comment="" />
+      <created>1617151768848</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617151768848</updated>
+      <workItem from="1617151769905" duration="9624000" />
+      <workItem from="1617206607196" duration="3317000" />
+      <workItem from="1617220535609" duration="474000" />
+      <workItem from="1617361669965" duration="1836000" />
+      <workItem from="1646518611770" duration="1330000" />
+      <workItem from="1646531438403" duration="9267000" />
+      <workItem from="1646626821525" duration="3212000" />
+      <workItem from="1646688444373" duration="2974000" />
+      <workItem from="1646692083915" duration="64000" />
+      <workItem from="1646694414913" duration="613000" />
+      <workItem from="1646795163217" duration="594000" />
+      <workItem from="1646968868844" duration="18000" />
+      <workItem from="1647202691752" duration="3136000" />
+      <workItem from="1647397758667" duration="2672000" />
+      <workItem from="1647548307520" duration="977000" />
+      <workItem from="1647573334407" duration="3180000" />
+      <workItem from="1647641976751" duration="682000" />
+      <workItem from="1648136036796" duration="43000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
