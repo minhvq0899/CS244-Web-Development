@@ -1,0 +1,115 @@
+:root {
+    --main: gold;
+    --dark: black;
+    --carousel_head: #03045e;
+    --carousel_text: #fca311;
+    --cardByYear: #0096c7;
+    --white: white;
+}
+
+#splash img {
+    width: 50px;
+    float: left;
+}
+
+* {
+    font-family: 'Anton', sans-serif;
+}
+
+#cardByYear img{
+    height: 500px;
+}
+
+.navbar {
+    background-color: var(--main);
+}
+
+.navbar-brand {
+    color: var(--dark);
+    font-weight: bold;
+}
+
+#navbarSupportedContent .nav-link a li {
+    color: var(--dark);
+}
+
+#cardByYear .col-lg-4 {
+    background-color: var(--cardByYear);
+}
+
+#yearList {
+    color: var(--white);
+}
+
+#cardByYear h1 {
+    color: var(--white);
+}
+
+#cardByYear .btn button li {
+    font-weight: bold;
+}
+
+#cardByYear ul {
+    list-style-type: none;
+    align-items: center;
+}
+
+#cardByYear .basketball_card_container {
+    height: 70%;
+    width: 95%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+#cardByYear img {
+    height: auto;
+    width: 100%;
+}
+
+#cardByYear button {
+    width: 100%;
+}
+
+#cardByYear hr {
+    opacity: 0.2;
+}
+
+.basketball_card_container p {
+    text-align:center;
+}
+
+.carousel_head1 {
+    height: 60px;
+    width: 100%;
+    text-align:center;
+    font-size: 2.5em;
+    background-color: var(--carousel_head);
+}
+
+.carousel_head2 {
+    height: 40px;
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+.carousel_head1 p {
+    color: var(--carousel_text);
+    font-family: 'Stick', sans-serif;
+}
+
+.carousel_head2 p {
+    line-height: 200%;
+    color: var(--dark);
+}
+
+.carousel-inner img {
+    height: 600px;
+    width: auto;
+}
+
+#footer {
+    height: 3em;
+    background-color: var(--main);
+    text-align:center;
+}

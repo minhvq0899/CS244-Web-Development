@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Website</title>
+    <style>
+        body {
+            background-color: #cfbaf0;
+            width: 50%;
+            margin: auto;
+        }
+
+        h1, h2, h3 {
+            color: #3d405b;
+        }
+
+        .header_div {
+            display: grid;
+            grid-template-columns: 40% 60%;
+        }
+
+        #profile_pic {
+            width: 70%;
+            margin: 10%;
+        }
+
+        ul, table {
+            width: 80%;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #submit_button {
+            margin-left: 67px;
+
+            margin-bottom: 50px;
+        }
+
+        .section_headers {
+            text-align: center;
+            color: #ff595e;
+        }
+
+        .section_div:hover {
+            background-color: #e2afff;
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+<div class="header_div">
+    <div>
+        <img id="profile_pic" src="images/pic.jpg" alt="Profile Pic">
+    </div>
+    <div>
+        <h1> Minh Q. Vu </h1>
+        <h2> Student at Clark University </h2>
+        <h3> Major: Computer Science, Economics </h3>
+        <h3> Minor: Data Science </h3>
+        <a href="https://www.clarku.edu/">Clark University</a> <br>
+        <a href="pdfs/Minh-Vu-Resume.pdf">Resume</a>
+    </div>
+</div>
+
+<hr>
+
+<div class="section_div">
+    <h3 class="section_headers">About me</h3>
+    <p> I am currently an undergraduate at Clark University, double majoring in Economics and Computer Science and minoring in Data Science.
+        A young professional who is passionate about Machine Learning and Software Engineering. <br> <br>
+        • Computer Languages:  Python, C++, SQL, Java, R, JavaScript, NodeJS, HTML, CSS <br>
+        • Python: Matplotlib, Numpy, Scikit-learn, Pandas, Tensorflow, Keras (Deep Learning with DNN, CNN) , Jupyter Notebook (features engineering, hyperparameters tuning, model evaluation) , OpenCV <br>
+        • Big Data software: Apache Hadoop, HDFS, YARN <br>
+        • Linux, Windows terminal, Git <br>
+    </p>
+</div>
+<hr>
+
+<div class="section_div">
+    <h3 class="section_headers">Classes</h3>
+    <ul>
+        <li> Algorithms </li>
+        <li> Applied ML </li>
+        <li> Web Development </li>
+        <li> IoT </li>
+    </ul>
+</div>
+<hr>
+
+<div class="section_div">
+    <h3 class="section_headers">Top Programming Skills</h3>
+    <ul style="list-style-type: square">
+        <li> Python </li>
+        <li> C++ </li>
+        <li> NodeJS </li>
+        <li> HTML/CSS </li>
+    </ul>
+</div>
+<hr>
+
+<div class="section_div">
+    <h3 class="section_headers">Hobby</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Hobby</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Coding</td>
+                <td>💻💻💻💻💻💻💻💻💻💻💻 </td>
+            </tr>
+            <tr>
+                <td>Soccer</td>
+                <td>⚽⚽⚽⚽⚽</td>
+            </tr>
+            <tr>
+                <td>Studying Poker using Solver</td>
+                <td>♥♣♦♠ ♥♣♦♠ ♥♣♦♠ ♥♣♦♠</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+
+<div class="section_div">
+    <h3 class="section_headers">Tell me about you</h3>
+    <table>
+        <form action="" method="post">
+            <tr>
+                <td>
+                    <label for="name">Name:</label>
+                </td>
+                <td>
+                    <input id="name" type="text" name="name" value=""><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="age">Age:</label>
+                </td>
+                <td>
+                    <input id="age" type="number" name="age" value=""><br>
+                </td>
+            </tr>
+        </form>
+    </table>
+    <input id="submit_button" type="submit" value="Submit" style="width:200px"> <br>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

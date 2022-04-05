@@ -31,7 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab #6 - Backend/Tut 6 NodeJS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,15 +66,7 @@
       <workItem from="1646626821525" duration="3212000" />
       <workItem from="1646688444373" duration="2974000" />
       <workItem from="1646692083915" duration="64000" />
-      <workItem from="1646694414913" duration="613000" />
-      <workItem from="1646795163217" duration="594000" />
-      <workItem from="1646968868844" duration="18000" />
-      <workItem from="1647202691752" duration="3136000" />
-      <workItem from="1647397758667" duration="2672000" />
-      <workItem from="1647548307520" duration="977000" />
-      <workItem from="1647573334407" duration="3180000" />
-      <workItem from="1647641976751" duration="682000" />
-      <workItem from="1648136036796" duration="43000" />
+      <workItem from="1646968889021" duration="448000" />
     </task>
     <servers />
   </component>

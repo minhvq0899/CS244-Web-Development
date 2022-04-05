@@ -30,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab #5.2 - jQuery/Tut 5 jQuery" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -59,8 +59,6 @@
       <workItem from="1616030207960" duration="20000" />
       <workItem from="1645194856172" duration="2362000" />
       <workItem from="1645216184324" duration="10735000" />
-      <workItem from="1645760675821" duration="56000" />
-      <workItem from="1646432863977" duration="2204000" />
     </task>
     <servers />
   </component>

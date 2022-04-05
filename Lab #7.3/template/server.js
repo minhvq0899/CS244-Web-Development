@@ -39,7 +39,7 @@ const carSchema = {
     }
 }
 
-const Car = mongoose.model('Car', carSchema);
+const usedCar = mongoose.model('Car', carSchema);
 
 app.listen(9000, function () {
     console.log("server started at 9000");
@@ -52,7 +52,7 @@ app.get('/', function (req, res) {
 
 //Get all cars in the db
 app.get("/get_all_cars", function (req, res) {
-    Car.find(function (err, data) {
+    usedCar.find(function (err, data) {
         if (err) {
             res.send({
                 "message": "internal database error",
@@ -69,24 +69,28 @@ app.get("/get_all_cars", function (req, res) {
 
 
 
-// // Get movie by _id
-// app.get('/get_movie_by_id',
-//     function (req, res) {
-//         // console.log(req.query.movie_id);
-//         Movie.find({"_id": req.query.movie_id}, function (err, data) {
-//             if (err || data.length === 0) {
-//                 res.send({
-//                     "message": "internal database error",
-//                     "data": {}
-//                 });
-//             } else {
-//                 res.send({
-//                     "message": "success",
-//                     "data": data[0]
-//                 })
-//             }
-//         });
-//     });
+// Get car by _id
+app.get('/get_car_by_id',
+    function (req, res) {
+        // console.log(req.query.car_id);
+        usedCar.find({"_id": req.query.car_id}, function (err, data) {
+            if (err || data.length === 0) {
+                res.send({
+                    "message": "internal database error",
+                    "data": {}
+                });
+            } else {
+                res.send({
+                    "message": "success",
+                    "data": data[0]
+                })
+            }
+        });
+    });
+
+
+
+
 
 // //Save the movie to the database
 // app.post("/save_movie", (req, res) => {

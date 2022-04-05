@@ -16,6 +16,10 @@
     font-size: x-large;
 }
 
+#car_info .row {
+    margin: 1rem;
+}
+
 #car_img {
     width: 50%;
     margin-left: 25%;

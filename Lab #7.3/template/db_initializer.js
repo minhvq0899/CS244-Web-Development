@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const csv = require('csv-parser');
+const fs = require('fs');
 
 
 mongoose.connect('mongodb://localhost:27017/usedCarsDB',
@@ -28,7 +30,7 @@ const carSchema = {
         type: String,
         required: [true,"Color cannot be empty"]
     },
-    pic_url: String,
+    url: String,
     price: {
         type: Number,
         required: [true,"Price cannot be empty"]
@@ -36,37 +38,29 @@ const carSchema = {
 }
 
 
-const usedCar = mongoose.model('usedCar', carSchema);
+const usedCar = mongoose.model('Car', carSchema);
 
 const carList = []
 
-// jsonList.forEach(function (movie) {
-//     movieList.push({
-//         "title": movie["title"],
-//         "rating": movie["vote_average"],
-//         "poster_path": "http://image.tmdb.org/t/p/w342" + movie["poster_path"],
-//         "release_date": movie["release_date"],
-//         "overview": movie["overview"]
-//     })
-// });
 
-carList.push({
-            "stock_num": "19913071",
-            "make": "Toyota",
-            "model": "Corolla",
-            "year": 2015,
-            "color": "Red", 
-            "pic_url": "https://img2.carmax.com/img/vehicles/19913071/1.jpg?width=800", 
-            "price": 14715
-        })
+fs.createReadStream(__dirname+'/data100.csv')
+    .pipe(csv())
+    .on('data', (data) => carList.push(data))
+    .on('end', () => {
+        console.log(carList[0]);
+        // Do the database insertMany here
+        usedCar.insertMany(carList, {}, function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("all data saved");
+                mongoose.connection.close();
+            }
+        });
+    });
 
 
-usedCar.insertMany(carList, {}, function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("all data saved");
-        mongoose.connection.close();
-    }
-});
+
+
+
 

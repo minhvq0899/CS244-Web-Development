@@ -25,24 +25,74 @@ function showList(cars) {
     });
 }
 
-showList([{
-    "_id": 12345, 
-    "stock_num": "19913071",
-    "make": "Toyota",
-    "model": "Corolla",
-    "year": 2015,
-    "color": "Red", 
-    "pic_url": "https://img2.carmax.com/img/vehicles/19913071/1.jpg?width=800", 
-    "price": 14715
-}])
 
 
-
+let all_cars; 
 
 $.getJSON("/get_all_cars")
     .done(function (data) {
+        console.log("data: ", data); 
+        all_cars = data.data; 
         if (data.message === "success") {
-            showList(data.data);
+            showList(all_cars);
         }
     });
+
+
+
+
+$('.make_header').on('click', function () {
+    all_cars.sort( (a, b) => {
+        if (a.make < b.make) {
+            return -1;
+        } 
+    })
+    
+    showList(all_cars);
+});
+
+
+$('.model_header').on('click', function () {
+    all_cars.sort( (a, b) => {
+        if (a.model < b.model) {
+            return -1;
+        } 
+    })
+    
+    showList(all_cars);
+});
+
+
+$('.year_header').on('click', function () {
+    all_cars.sort( (a, b) => {
+        return a.year - b.year; 
+    })
+    
+    showList(all_cars);
+});
+
+
+$('.price_header').on('click', function () {
+    all_cars.sort( (a, b) => {
+        return a.price - b.price; 
+    })
+    
+    showList(all_cars);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
