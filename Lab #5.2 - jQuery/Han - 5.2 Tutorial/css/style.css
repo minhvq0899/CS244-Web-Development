@@ -1,0 +1,43 @@
+:root {
+    /* CSS HEX */
+    --imperial-red: #e63946ff;
+    --honeydew: #f1faeeff;
+    --powder-blue: #a8dadcff;
+    --celadon-blue: #457b9dff;
+    --prussian-blue: #1d3557ff;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    border-radius: 30px;
+    padding: 2%;
+}
+
+.movie_title {
+    color: var(--imperial-red);
+    font-family: 'RocknRoll', sans-serif;
+    font-size: 2rem;
+}
+
+.cel_noto {
+    color: var(--celadon-blue);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.larger_text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.odd_row {
+    background-color: var(--powder-blue);
+    overflow: auto;
+}
+
+.even_row {
+    background-color: var(--honeydew);
+    overflow: auto;
+}
+

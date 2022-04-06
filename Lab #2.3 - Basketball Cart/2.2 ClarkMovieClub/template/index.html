@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Clark Movie Club</title>
+
+    <!--    CSS file-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--    Bootstrap library-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+    <!--    Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=RocknRoll+One&display=swap" rel="stylesheet">
+
+    <!--    Font Awesome library-->
+    <script src="https://kit.fontawesome.com/e5b5eed843.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Join Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Club Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Movies</a>
+                </li>
+                <!--                <li class="nav-item dropdown">-->
+                <!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+                <!--                        Dropdown-->
+                <!--                    </a>-->
+                <!--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                <!--                        <li><a class="dropdown-item" href="#">Home</a></li>-->
+                <!--                        <li><a class="dropdown-item" href="#">Another action</a></li>-->
+                <!--                        <li><hr class="dropdown-divider"></li>-->
+                <!--                        <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link disabled">Disabled</a>-->
+                <!--                </li>-->
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--Carousel-->
+<section id="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-inteval="5000">
+                <img src="img/carousel/movie_night.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Movie Night</h3>
+                    <p>We watch movies every Friday night.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-inteval="3000">
+                <img src="img/carousel/movie_fest.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Movie Fest</h3>
+                    <p>We go to Boston Movie Fest together.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-inteval="2000">
+                <img src="img/carousel/hiking.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Hiking</h3>
+                    <p>In spring and fall, we go hiking together to nearby trails.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!--Social Media-->
+<section id="socialMedia">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mt-lg-5">
+                <h1>Nothing is better than watching movies with friends.</h1>
+                <button type="button" class="btn btn-dark">
+                    <i class="fab fa-facebook-square"></i> Facebook
+                </button>
+                <button type="button" class="btn btn-dark">
+                    <i class="fab fa-instagram"></i> Instagram
+                </button>
+                <button type="button" class="btn btn-dark">
+                    <i class="fab fa-twitter-square"></i> Twitter
+                </button>
+            </div>
+            <div class="col-lg-5 my-md-3">
+                <img src="img/banner.png">
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<!-- Highlights -->
+<section id="highlights">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 my-lg-4">
+                <img src="img/icons/movie.svg">
+                <h3 class="mt-lg-3">$5 PER MOVIE</h3>
+                <p>$5 per person for each movie night</p>
+                <p>Free movie on your birthday</p>
+            </div>
+            <div class="col-lg-4 my-lg-4">
+                <img src="img/icons/food_drink.svg">
+                <h3 class="mt-lg-3">DRINK AND SNACKS</h3>
+                <p>We will buy popcorn and sodas</p>
+                <p>Feel free to bring your own shareable!</p>
+            </div>
+            <div class="col-lg-4 my-lg-4">
+                <img src="img/icons/club_activity.svg">
+                <h3 class="mt-lg-3">CLUB ACTIVITIES</h3>
+                <p>We go to movie fest together</p>
+                <p>We go out and hiking every month</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Movies -->
+<section id="movies">
+    <h2>Recent Movies</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/aladdin.jpg" alt="aladdin" />
+                <h3>Aladdin</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/avatar.jpg" alt="avatar" />
+                <h3>Avatar - The Way Of</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/avengers.jpg" alt="avengers" />
+                <h3>Avengers - End Game</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/black_panther.jpg" alt="black_panther" />
+                <h3>Black Panther</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/boss_baby.jpg" alt="boss_baby" />
+                <h3>Baby Boss</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/minions.jpg" alt="minions" />
+                <h3>Minions</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/moana.jpg" alt="moana" />
+                <h3>Moana</h3>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/movies/spider-man.jpg" alt="spider-man" />
+                <h3>Spider-man - Far From Home</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="footer">
+    <p>© Copyright 2022 Clark Movie Club</p>
+</footer>
+
+
+</body>
+
+</html>

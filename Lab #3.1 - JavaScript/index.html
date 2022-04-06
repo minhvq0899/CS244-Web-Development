@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Package Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+
+    <style>
+        .list-group-item:hover{
+            background-color: lightgrey;
+        }
+    </style>
+
+    <script type="application/javascript">
+        const pkg_array = [];
+
+        function clearText() {
+            document.getElementById('alert_weight').innerText = '';
+            document.getElementById('alert_name').innerText = '';
+        }
+
+        function addPackage() {
+            clearText();
+            let weight = 0;
+            const pkg_weight_input = document.getElementById('pkg_weight').value;
+            if (pkg_weight_input.length > 0) {
+                weight = parseInt(pkg_weight_input);
+            }
+            const newPkg = {
+                "name": document.getElementById('pkg_name').value,
+                "weight": weight,
+                "size": document.getElementById('pkg_size').value
+            };
+            if (newPkg.name.length <= 3) {
+                document.getElementById('alert_name').innerText = 'Package name is too short';
+                return;
+            }
+            if (newPkg.weight < 1 || newPkg.weight > 10) {
+                document.getElementById('alert_weight').innerText =
+                    'Package weight must be between 1 and 10 lb';
+                return;
+            }
+            pkg_array.push(newPkg);
+            console.log(pkg_array);
+
+            showList();
+
+
+        }
+
+        function showList() {
+            if (pkg_array.length > 0) {
+                const pkg_ulist = document.getElementById('pkg_list');
+                pkg_ulist.innerHTML = '';
+                let total_weight = 0;
+                document.getElementById('total_weight').innerText = total_weight + 'lb';
+
+                if (document.getElementById('weight').checked){
+                    pkg_array.sort( (a,b) => {
+                        return a.weight - b.weight;
+                    })
+                }
+                else{
+                    pkg_array.sort( (a,b) => {
+                        return a.size - b.size;
+                    })
+
+                }
+
+                //1st way to loop an array
+                // for(let i=0; i<pkg_array.length;i++){
+                //     console.log(item2str(pkg_array[i]));
+                // }
+
+                //2nd way to loop an array
+                // pkg_array.forEach(function (pkg){
+                //     console.log(item2str(pkg));
+                // });
+
+                //3rd way to loop an array
+                // pkg_array.forEach(pkg => {
+                //     console.log(item2str(pkg));
+                // });
+
+                //4th way to loop an array (similar to Python loop)
+                // for(const pkg of pkg_array){
+                //     console.log(item2str(pkg));
+                // }
+
+                pkg_array.forEach(pkg => {
+                    const li = document.createElement('li');
+                    li.innerText = item2str(pkg);
+                    pkg_ulist.appendChild(li);
+                    li.className = 'list-group-item';
+                    total_weight += pkg.weight;
+                })
+                document.getElementById('total_weight').innerText =
+                    "Total weight: " + total_weight + " lb";
+            }
+        }
+
+        function item2str(pkg) {
+            return pkg.name + ' ' + pkg.weight + 'lb' + ' ' + size2str(pkg.size);
+        }
+
+        function size2str(size) {
+            if (size === '0') {
+                return "Small";
+            } else if (size === '1') {
+                return "Medium";
+            } else {
+                return "Large";
+            }
+        }
+    </script>
+</head>
+
+<body class="container">
+
+<section id="user_input">
+    <form id="input_form">
+        <div>
+            <label for="pkg_name" class="form-label">Name:</label>
+            <input type="text" name="name" value="" id="pkg_name" class="form-control">
+            <label id="alert_name" style="color:red"></label>
+        </div>
+        <div>
+            <label for="pkg_weight" class="form-label">Weight:</label>
+            <input type="number" name="weight" value="" id="pkg_weight" class="form-control">
+            <label id="alert_weight" style="color:red">Alert</label>
+        </div>
+        <div>
+            <label for="pkg_size" class="form-label">Package size</label>
+            <select name="size" id="pkg_size" class="form-select">
+                <option value="0">Small</option>
+                <option value="1">Medium</option>
+                <option value="2">Large</option>
+            </select>
+        </div>
+        <div style="margin-top: 2rem;" class="d-flex justify-content-center">
+            <input type="button" value="Add" class="btn btn-primary col-lg-5"
+                   onclick="addPackage()">
+        </div>
+    </form>
+</section>
+
+
+<section id="cal_weight">
+    <div style="font-size: x-large; margin:1% 5%">
+        <p id="total_weight">Total weight:&nbsp;0lb</p>
+    </div>
+</section>
+
+<section id="show_item_list">
+    <div style="font-size: x-large; margin:1% 5%">
+        <div class="d-flex justify-content-between">
+
+            <div>Package List</div>
+            <div>
+                <label class="form-label" for="weight">Sort by</label>
+
+                <label class="form-label" for="weight">weight</label>
+                <input class="form-check-input" type="radio" id="weight" name="sort_by" value="weight"
+                        onclick="showList()" checked=checked>
+
+                <label class="form-label" for="size">size</label>
+                <input class="form-check-input" type="radio" id="size" name="sort_by" value="size"
+                        onclick="showList()">
+            </div>
+
+        </div>
+
+        <ul id="pkg_list" class="list-group">
+            <li class="list-group-item">items show here</li>
+        </ul>
+        
+    </div>
+</section>
+</body>
+</html>
