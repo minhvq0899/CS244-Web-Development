@@ -28,10 +28,20 @@ $(document).ready(function () {
 });
 
 
-// function onEdit() {
-//     location.href = "/edit_car.html?car_id=" + car_id;
-// }
+function onEdit() {
+    location.href = "/edit_car.html?car_id=" + car_id;
+}
 
-// function onDelete() {
-//     $.post('/delete_car_by_id', {_id: car_id})
-// }
+function onDelete() {
+    $.post('/delete_car_by_id', {_id: car_id}).done(
+        (data)=>{
+            if (data.message === "success"){
+                location.href = "/";
+            }
+            else{
+                // handle DB error
+                console.log("delete fail");
+            }
+        }
+    );
+}

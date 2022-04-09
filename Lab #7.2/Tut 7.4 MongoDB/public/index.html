@@ -53,33 +53,33 @@
     <div class="input-group mb-3 d-flex justify-content-end">
         <button class="btn btn-info" onclick="addNewMovie()">Create a New Movie</button>
         <button class="btn btn-danger" onclick="onDeleteSelected()">Delete Selected Movies</button>
-        <input id="select_all" type="checkbox" class="btn-check" onclick="onSelectAll()">
+        <input id="select_all" type="checkbox" class="btn-check check_box" onclick="onSelectAll()"> <!--btn-check convert to checkbox-->
         <label class="btn btn-outline-primary" for="select_all">Select all</label>
     </div>
     <div class="row">
-        <!--        <div class="col-lg-2">-->
-        <!--            <div class="input-group mb-3">-->
-        <!--                <input id="search_box" type="search" class="form-control" placeholder="Search movies..."-->
-        <!--                       aria-label="Search"-->
-        <!--                       aria-describedby="basic-addon2" onsearch="searchMovie()">-->
-        <!--                <span class="input-group-text" id="basic-addon2" onclick="searchMovie()"><i-->
-        <!--                        class="fas fa-search"></i></span>-->
-        <!--            </div>-->
-        <!--            <div>-->
-        <!--                <div class="input-group mb-3">-->
-        <!--                    <span class="input-group-text" style="width: 100px">Min rating</span>-->
-        <!--                    <input type="Number" step="0.1" class="form-control" id="min_rating" aria-describedby="min rating">-->
-        <!--                </div>-->
+        <div class="col-lg-2">
+            <div class="input-group mb-3">
+                <input id="search_box" type="search" class="form-control" placeholder="Search movies..."
+                       aria-label="Search"
+                       aria-describedby="basic-addon2" onsearch="searchMovie()">
+                <span class="input-group-text" id="basic-addon2" onclick="searchMovie()"><i
+                        class="fas fa-search"></i></span>
+            </div>
+            <div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" style="width: 100px">Min rating</span>
+                    <input type="Number" step="0.1" class="form-control" id="min_rating" aria-describedby="min rating">
+                </div>
 
-        <!--                <div class="input-group mb-3">-->
-        <!--                    <span class="input-group-text" style="width: 100px">Max rating</span>-->
-        <!--                    <input type="Number" step="0.1" class="form-control" id="max_rating" aria-describedby="max rating">-->
-        <!--                </div>-->
-        <!--                <div class="input-group mb-3 d-flex justify-content-end">-->
-        <!--                    <button class="btn btn-secondary" onclick="searchMovie()">Apply</button>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" style="width: 100px">Max rating</span>
+                    <input type="Number" step="0.1" class="form-control" id="max_rating" aria-describedby="max rating">
+                </div>
+                <div class="input-group mb-3 d-flex justify-content-end">
+                    <button class="btn btn-secondary" onclick="searchMovie()">Apply</button>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-10">
             <ul id="movie_list" class="list-group">
 

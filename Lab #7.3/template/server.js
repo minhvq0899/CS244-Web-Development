@@ -90,47 +90,130 @@ app.get('/get_car_by_id',
 
 
 
+//Save the movie to the database
+app.post("/save_car", (req, res) => {
+    const car = {
+        stock_num: req.body.stock_num,
+        make: req.body.make,
+        model: req.body.model,
+        year: req.body.year,
+        color: req.body.color,
+        pic_url: req.body.pic_url,
+        price: req.body.price
+    };
+    console.log("POST /save_car");
+    console.log("req.body._id " + req.body._id);
+
+    if (req.body._id) {
+        // update existed movie
+        usedCar.updateOne({_id: req.body._id},
+            {$set: car},
+            {runValidators: true},
+            (err, info) => {
+                if (err) {
+                    res.redirect("/edit_car.html?error_message=" + err['message']
+                        + "&input=" + JSON.stringify(car) + "&car_id=" + req.body._id);
+                } else {
+                    // success
+                    res.redirect("/detail.html?car_id=" + req.body._id);
+                }
+            }
+        )
+
+    } else {
+        // create new movie
+        const newCar = new usedCar(car);
+        newCar.save((err, new_car) => {
+            if (err) {
+                console.log(err);
+                console.log("Saving movie failed");
+                // res.send("Database error");
+                res.redirect("/edit_movie.html?error_message=" + err['message']
+                    + "&input=" + JSON.stringify(movie));
+            } else {
+                res.redirect("/detail.html?car_id=" + new_car._id);
+            }
+        });
+    }
+});
 
 
-// //Save the movie to the database
-// app.post("/save_movie", (req, res) => {
-//     const movie = {
-//         title: req.body.title,
-//         rating: req.body.rating,
-//         poster_path: req.body.poster_path,
-//         release_date: req.body.release_date,
-//         overview: req.body.overview,
-//     };
-//     const newMovie = new Movie(movie);
-//     newMovie.save((err,new_movie)=>{
-//         if (err){
-//             console.log(err);
-//             console.log("Saving movie failed");
-//             // res.send("Database error");
-//             res.redirect("/edit_movie.html?error_message=" + err['message']
-//                 + "&input=" + JSON.stringify(movie));
-//         } else {
-//             res.redirect("/movie_detail.html?movie_id=" + new_movie._id);
-//         }
-//     });
-// });
 
-// // Delete movie by id
-// app.post('/delete_movie_by_id', (req, res) => {
-
-// });
+// Delete movie by id
+app.post('/delete_car_by_id', (req, res) => {
+    usedCar.deleteOne(
+        {"_id": req.body._id},
+        {},
+        (err) => {
+            if (err) {
+                res.send({
+                    "message": "DB deletion error"
+                });
+            } else {
+                res.send({
+                    "message": "success"
+                });
+            }
+        });
+});
 
 
-// // Delete a list of movies by id
-// app.post('/delete_movie_by_ids', (req, res) => {
 
-// });
 
-// // Get movies by keyword and min max rating
-// app.get("/get_movies_by_filters", (req, res) => {
 
-// });
+// Get movies by keyword and min max rating
+app.get("/get_cars_by_filters", (req, res) => {
+    console.log("search_key: ", req.query.search_key);
+    console.log("min_year: ", req.query.min_year);
+    console.log("max_year: ", req.query.max_year);
+    console.log("min_price: ", req.query.min_price);
+    console.log("max_price: ", req.query.max_price);
 
+    const sk = req.query.search_key;
+    let minyear = req.query.min_year;
+    if (!minyear) {
+        minyear = 1900;
+    }
+    let maxyear = req.query.max_year;
+    if (!maxyear) {
+        maxyear = 2022;
+    }
+
+    let minprice = req.query.min_price;
+    if (!minprice) {
+        minprice = 0;
+    }
+
+    usedCar.find({
+            $and: [
+                {year: {$gte: minyear}},
+                {year: {$lte: maxyear}},
+                {price: {$gte: minprice}},
+                {
+                    $or: [
+                        {make: {$regex: sk}},
+                        {model: {$regex: sk}},
+                    ]
+                }
+            ]
+        },
+        (err, data) => {
+            if (err) {
+                console.log("search error");
+                res.send({
+                    "message": "error",
+                    "data": []
+                });
+            } else {
+                // console.log(data);
+                res.send({
+                    "message": "success",
+                    "data": data
+                });
+            }
+        }
+    );
+});
 
 
 

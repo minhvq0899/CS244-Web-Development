@@ -14,6 +14,9 @@
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
             crossorigin="anonymous"></script>
 
+    <!--    fontawesome-->
+    <script src="https://kit.fontawesome.com/e5b5eed843.js" crossorigin="anonymous"></script>
+
     <!--    jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -48,6 +51,45 @@
 </section>
 
 <section id="cars">
+    <div class="input-group mb-3">
+        <input id="search_box" type="search" class="form-control" placeholder="Search cars..."
+               aria-label="Search" aria-describedby="basic-addon2" onsearch="searchCar()">
+        <span class="input-group-text" id="basic-addon2" onclick="searchCar()"><i class="fas fa-search"></i></span>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 100px">Min year</span>
+                <input type="Number" step="0.1" class="form-control" id="min_year" aria-describedby="min year">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 100px">Max year</span>
+                <input type="Number" step="0.1" class="form-control" id="max_year" aria-describedby="max year">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 100px">Min price</span>
+                <input type="Number" step="0.1" class="form-control" id="min_price" aria-describedby="min price">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 100px">Max price</span>
+                <input type="Number" step="0.1" class="form-control" id="max_price" aria-describedby="max price">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3 d-flex">
+                <button class="btn btn-secondary" onclick="searchCar()">Search</button>
+            </div>
+        </div>     
+    </div>
+    <div class="input-group mb-3 d-flex justify-content-end">
+        <button class="btn btn-info" onclick="addNewCar()">Create a New Car</button>
+    </div>
     <div class="row" id="headers">
         <div class="col-3 make_header"><a>Make</a></div>
         <div class="col-3 model_header"><a>Model</a></div>

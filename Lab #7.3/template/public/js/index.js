@@ -19,7 +19,7 @@ function showList(cars) {
     });
 
     // button
-    $('button').on('click', function () {
+    $('.btn-outline-primary').on('click', function () {
         const car_id = $(this).attr('value');
         location.href = "detail.html?car_id=" + car_id;
     });
@@ -82,10 +82,23 @@ $('.price_header').on('click', function () {
 
 
 
+function addNewCar(){
+    location.href = "edit_car.html";
+}
 
 
 
-
+function searchCar(){
+    $.getJSON("/get_cars_by_filters", {
+        search_key: $('#search_box').val(),
+        min_year: $('#min_year').val(),
+        max_year: $('#max_year').val(),
+        min_price: $('#min_price').val(),
+        max_price: $('#max_price').val()
+    }).done((data)=>{
+        showList(data.data);
+    });
+}
 
 
 

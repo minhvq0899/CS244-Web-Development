@@ -15,11 +15,11 @@ mongoose.connect('mongodb://localhost:27017/movieDB',
 const movieSchema = {
     title: {
         type: String,
-        required: [true,"Title cannot be empty"]
+        required: [true, "Title cannot be empty"]
     },
     rating: {
         type: Number,
-        required: [true,"Rating cannot be empty"],
+        required: [true, "Rating cannot be empty"],
         min: [0, "Rating cannot be negative"],
         max: [10, "Rating cannot exceed 10"]
     },
@@ -27,7 +27,7 @@ const movieSchema = {
     release_date: {
         type: String,
         validate: {
-            validator: function(value){
+            validator: function (value) {
                 return /\d{4}-\d{2}-\d{2}/.test(value);
             },
             message: "Date format must be yyyy-mm-dd",
@@ -91,17 +91,18 @@ app.post("/save_movie", (req, res) => {
         release_date: req.body.release_date,
         overview: req.body.overview,
     };
-    console.log(req.body._id);
+    console.log("POST /save_movie");
+    console.log("req.body._id " + req.body._id);
 
     if (req.body._id) {
         // update existed movie
-        Movie.updateOne({_id:req.body._id},
-            {$set:movie},
+        Movie.updateOne({_id: req.body._id},
+            {$set: movie},
             {runValidators: true},
             (err, info) => {
                 if (err) {
                     res.redirect("/edit_movie.html?error_message=" + err['message']
-                        + "&input=" + JSON.stringify(movie) + "&movieID=" + req.body._id );
+                        + "&input=" + JSON.stringify(movie) + "&movie_id=" + req.body._id);
                 } else {
                     // success
                     res.redirect("/movie_detail.html?movie_id=" + req.body._id);
@@ -112,8 +113,8 @@ app.post("/save_movie", (req, res) => {
     } else {
         // create new movie
         const newMovie = new Movie(movie);
-        newMovie.save((err,new_movie)=>{
-            if (err){
+        newMovie.save((err, new_movie) => {
+            if (err) {
                 console.log(err);
                 console.log("Saving movie failed");
                 // res.send("Database error");
@@ -128,16 +129,84 @@ app.post("/save_movie", (req, res) => {
 
 // Delete movie by id
 app.post('/delete_movie_by_id', (req, res) => {
-
+    Movie.deleteOne(
+        {"_id": req.body._id},
+        {},
+        (err) => {
+            if (err) {
+                res.send({
+                    "message": "DB deletion error"
+                });
+            } else {
+                res.send({
+                    "message": "success"
+                });
+            }
+        });
 });
 
 
 // Delete a list of movies by id
 app.post('/delete_movie_by_ids', (req, res) => {
-
+    // console.log(req.body._ids);
+    Movie.deleteMany(
+        {"_id": {$in: req.body._ids}},
+        {},
+        (err) => {
+            if (err) {
+                res.send({
+                    "message": "DB multiple deletion error"
+                });
+            } else {
+                res.send({
+                    "message": "success"
+                });
+            }
+        }
+    );
 });
 
 // Get movies by keyword and min max rating
 app.get("/get_movies_by_filters", (req, res) => {
+    console.log(req.query.search_key);
+    console.log(req.query.min_rating);
+    console.log(req.query.max_rating);
 
+    const sk = req.query.search_key;
+    let minrt = req.query.min_rating;
+    if (!minrt) {
+        minrt = 0;
+    }
+    let maxrt = req.query.max_rating;
+    if (!maxrt) {
+        maxrt = 10;
+    }
+    Movie.find({
+            $and: [
+                {rating: {$gte: minrt}},
+                {rating: {$lte: maxrt}},
+                {
+                    $or: [
+                        {title: {$regex: sk}},
+                        {overview: {$regex: sk}}
+                    ]
+                }
+            ]
+        },
+        (err, data) => {
+            if (err) {
+                console.log("search error");
+                res.send({
+                    "message": "error",
+                    "data": []
+                });
+            } else {
+                console.log(data);
+                res.send({
+                    "message": "success",
+                    "data": data
+                });
+            }
+        }
+    );
 });

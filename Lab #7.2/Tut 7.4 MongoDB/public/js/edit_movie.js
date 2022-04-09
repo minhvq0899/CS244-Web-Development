@@ -13,9 +13,7 @@ function onCancel() {
     } else {
         //come from homepage
         location.href = "/";
-
     }
-
 }
 
 const queryString = window.location.search;
@@ -31,34 +29,32 @@ $('form').on('submit', function () {
         $('#error_message').text("Overview must be at least 10 characters");
         return false;
     }
-
     if (movie_id) {
         $('form').append(() => {
             const input = $('<input>')
                 .attr('name', '_id' )
                 .attr('value', movie_id)
             return input;
-        })
-
-
+        });
     }
 });
 
-
+// When user input is rejected, load the last input
 if (errorMessage){
+    console.log(movie);
     fillMovie(movie);
     $('#error_message').text(errorMessage);
 }
 
-
-
-if (movie_id) {
+// when movie_id is not null & no error message
+// query DB to load the movie from the db
+if (movie_id && !errorMessage) {
     $.getJSON('/get_movie_by_id?movie_id=' + movie_id)
         .done ((data) => {
             if (data['message'] === 'success') {
                 console.log(data.data);
                 fillMovie(data.data);
             }
-        })
+        });
 }
 

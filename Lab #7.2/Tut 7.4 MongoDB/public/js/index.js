@@ -21,8 +21,8 @@ function showList(movies) {
         $('#movie_list').append(get_movie_object(movie, idx));
     });
 
-    $('li').on('click', function () {
-        const movie_id = $(this).attr('data-m');
+    $('.imgDiv,.infoDiv').on('click', function () {
+        const movie_id = $(this).parents("li").attr('data-m');
         location.href = "movie_detail.html?movie_id=" + movie_id;
     });
 }
@@ -43,4 +43,34 @@ $.getJSON("/get_all_movies")
 
 function addNewMovie(){
     location.href = "edit_movie.html";
+}
+
+function onDeleteSelected(){
+    const movieIDs = [];
+    $.each($('#movie_list input:checked'), function (){
+        // this refers to the checked checkboxs
+         const movieID = $(this).attr('value');
+         movieIDs.push(movieID);
+    });
+    console.log(movieIDs);
+    if (movieIDs){
+        $.post('/delete_movie_by_ids', {"_ids": movieIDs}).done(()=>{
+            location.reload();
+        });
+    }
+}
+
+function onSelectAll(){
+    const isChecked = $('#select_all').prop('checked');
+    $('#movie_list .check_box').prop("checked", isChecked);
+}
+
+function searchMovie(){
+    $.getJSON("/get_movies_by_filters", {
+        search_key: $('#search_box').val(),
+        min_rating: $('#min_rating').val(),
+        max_rating: $('#max_rating').val()
+    }).done((data)=>{
+        showList(data.data);
+    });
 }

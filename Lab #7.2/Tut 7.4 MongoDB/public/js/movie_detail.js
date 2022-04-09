@@ -39,5 +39,14 @@ function onEdit() {
 }
 
 function onDelete() {
-    $.post('/delete_movie_by_id', {_id: movie_id})
+    $.post('/delete_movie_by_id', {_id: movie_id}).done(
+        (data)=>{
+            if (data.message === "success"){
+                location.href = "/";
+            }
+            else{
+                // handle DB error
+            }
+        }
+    );
 }
